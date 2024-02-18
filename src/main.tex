@@ -1,0 +1,44 @@
+\documentclass[a4paper,skipsamekey,11pt,english]{curve}
+
+\usepackage{settings}
+\usepackage[T1]{fontenc}
+\usepackage[a-2b,mathxmp]{pdfx}
+
+\leftheader{%
+    {\huge\bfseries\sffamily Example Name}
+  
+    \vspace{0.2em}
+    \textbf{Doctoral Researcher at the University of Example}
+    \vspace{0.2em}
+
+    \begin{tabular}{@{}ll}
+        \makefield{\faBirthdayCake}{Born January 1, 2000} &
+        \makefield{\faMapPin}{Based in London, UK} \\
+        \makefield{\faEnvelope[regular]}{\href{mailto:fake@example.com}{\texttt{fake@example.com}}} &
+        \makefield{\faPhone}{+1234567890} \\
+        \makefield{\faGithub}{\href{https://github.com/example}{\texttt{github.com/example}}} &
+        \makefield{\faIdBadge}{\href{https://orcid.org/0000-0000-0000-0000}{\texttt{ORCID/0000-0000-0000-0000}}} \\
+        \makefield{\faHome}{\href{https://example.com}{\texttt{example.com}}} &
+        \makefield{\faCalendar}{Updated on February 18, 2024}
+    \end{tabular}
+}
+
+\rightheader{~}
+\photo[r]{photo}
+\photoscale{0.20}
+\headerscale{0.80}
+
+\title{Curriculum Vitae Example Name}
+
+\begin{document}
+\makeheaders[c]
+
+\makerubric{education}
+\makerubric{experience}
+\makerubric{grants}
+\makerubric{publications}
+\makerubric{talks}
+\makerubric{other}
+\makerubric{awards}
+
+\end{document}

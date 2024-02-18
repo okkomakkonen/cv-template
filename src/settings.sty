@@ -1,0 +1,70 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Based on the template of 
+% LianTze Lim (liantze@gmail.com)
+% 
+
+\RequirePackage{silence}
+\WarningsOff[longtable]
+\WarningsOff[array]
+
+% Load packages
+\RequirePackage{graphicx}
+\RequirePackage[dvipsnames,svgnames]{xcolor}
+\RequirePackage[a4paper,nohead,nofoot,hmargin=12mm,vmargin=10mm]{geometry}
+\RequirePackage{relsize}
+\RequirePackage{babel}
+\RequirePackage[colorlinks=true,allcolors=black,breaklinks=true]{hyperref}
+
+% Define colors to use
+\definecolor{SwishLineColour}{HTML}{0074D9}
+\definecolor{MarkerColour}{HTML}{111111}
+
+% Set spacing and alignment
+\setlength{\headerspace}{6pt}
+\setlength{\rubricspace}{2pt}
+\setlength{\rubricafterspace}{-3pt}
+\setlength{\subrubricspace}{2pt}
+\setlength{\subrubricbeforespace}{-3pt}
+\renewcommand{\arraystretch}{1.25}
+
+\keyalignment{r}
+\rubricalignment{l}
+\subrubricalignment{l}
+
+% Set fonts
+\RequirePackage{microtype}
+\RequirePackage[p,osf]{cochineal}
+\RequirePackage{cabin}
+\RequirePackage[varqu,varl,scale=0.9]{zi4}
+\RequirePackage[fixed]{fontawesome5}
+
+\DeclareEncodingSubset{TS1}{Cochineal-*}{7}
+
+\rubricfont{\Large\bfseries\sffamily}
+\subrubricfont{\large\bfseries\sffamily}
+\urlstyle{tt}
+
+% Define rubric header
+\RequirePackage{tikz}
+\usetikzlibrary{shapes,shadows}
+
+\def\@@rubrichead#1{%
+  \begin{tikzpicture}[baseline]%
+    \shade[left color=SwishLineColour!60!white, right color=white] rectangle (\@almosttextwidth,2.5pt);
+    \node[font={\@rubricfont},inner sep=0pt,text ragged,anchor=south west,text depth=.5ex,text height=1.5ex] at (1pt,2pt) {#1};
+  \end{tikzpicture}%
+  \vspace\rubricspace%
+}
+
+% Define field
+\newcommand{\makefield}[2]{\makebox[1.5em]{\color{MarkerColour!80!black}#1} #2\hspace{2em}}
+
+% Define prefix
+\newcommand{\prefixmarker}[1]{\def\@prefixmarker{#1}}
+\prefixmarker{\relscale{.85}\faBookmark}
+
+\prefix{%
+  \hspace*{-1ex}
+  \color{MarkerColour!80!black}\@prefixmarker%
+  \hspace*{1ex}%
+}
